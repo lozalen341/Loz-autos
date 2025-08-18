@@ -1,8 +1,8 @@
-Concesionaria Web
+#Concesionaria Web
 
 Este proyecto es una aplicación web sencilla desarrollada en PHP y CSS, diseñada para gestionar una concesionaria de autos. Permite visualizar y administrar información sobre vehículos disponibles para la venta.
 
-📂 Estructura del proyecto
+##📂 Estructura del proyecto
 
 El repositorio contiene los siguientes archivos y carpetas:
 
