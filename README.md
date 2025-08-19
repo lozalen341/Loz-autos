@@ -1,30 +1,35 @@
-# Concesionaria Web
+# Loz-Autos
 
-Este proyecto es una aplicación web sencilla desarrollada en PHP y CSS, diseñada para gestionar una concesionaria de autos. Permite visualizar y administrar información sobre vehículos disponibles para la venta.
 
-## 📂 Estructura del proyecto
+Gestión simple de catálogo de autos (MVP) desarrollada en PHP (POO) + MySQL. Permite alta, edición, listado y venta (eliminación) de vehículos con imagen.
 
-El repositorio contiene los siguientes archivos y carpetas:
 
-index.php: Página principal que muestra la lista de autos disponibles.
+## Integrantes
+- Leandro Loza (@lozalen341)
+- Elias Florencio (@patidepollo)
 
-autos_DB.sql: Script SQL para crear y poblar la base de datos con información de autos.
 
-styles.css: Hoja de estilos para la presentación de la interfaz.
+## Tecnologías
+- PHP 8.x, MySQL 8.x / MariaDB 10.x
+- HTML5, CSS3, JS
+- Apache (XAMPP/WAMP)
 
-classes/: Carpeta que contiene las clases PHP utilizadas en la aplicación.
 
-## 🛠️ Requisitos
+## Estructura
+- `index.php` — vista/control del listado y formularios
+- `classes/Auto.php` — lógica de dominio y acceso a datos
+- `styles.css` — estilos
+- `autos_DB.sql` — esquema inicial de BD
 
-Para ejecutar este proyecto en tu entorno local, asegúrate de tener instalados:
 
-Un servidor web con soporte PHP (como XAMPP, WAMP o LAMP).
+## Instalación
+1. Clonar el repo en `htdocs/consesionaria`.
+2. Crear BD `consesionaria` (utf8mb4) e importar `autos_DB.sql`.
+3. Ajustar credenciales de DB en el código (si aplica).
+4. Abrir `http://localhost/consesionaria/`.
 
-MySQL o MariaDB para la base de datos.
 
-Un navegador web moderno.
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT. Consulta el archivo LICENSE
- para más detalles.
+## Uso
+- Agregar autos con sus datos e **URL de imagen**.
+- Editar autos desde el listado.
+- Botón **Comprar** elimina el auto (simula la venta) y redirige al inicio.
