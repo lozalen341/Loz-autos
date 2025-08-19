@@ -6,7 +6,7 @@ Gestión simple de catálogo de autos (MVP) desarrollada en PHP (POO) + MySQL. P
 
 ## Integrantes
 - Leandro Loza (@lozalen341)
-- Elias Florencio (@patidepollo)
+- Elias Florencio (@PatiDePollo)
 
 
 ## Tecnologías
