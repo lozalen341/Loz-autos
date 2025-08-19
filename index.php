@@ -1,16 +1,18 @@
 <?php
 require_once "classes/Auto.php";
+
 $autoObj = new Auto();
 
-// Eliminar auto (comprar)
+// Eliminar auto cuando el usuario compra
 if (isset($_POST['comprar'])) {
-    $id_auto = $_POST['id_auto'];
-    $autoObj->eliminarAuto($id_auto);
+    $id_auto = (int) $_POST['id_auto'];
+    $autoObj->eliminar($id_auto);
     header("Location: index.php");
     exit;
 }
 
-$autos = $autoObj->obtenerAutos();
+// Obtener autos para mostrar
+$autos = $autoObj->obtenerTodos();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -42,48 +44,31 @@ $autos = $autoObj->obtenerAutos();
 
   <!-- CATALOGO -->
   <section id="catalogo">
-  <h2>Catálogo de nuestros vehículos</h2>
-  
-  <div class="catalogo-container" id="catalogo-container">
-    <div class="catalogo-grid">
-    <?php foreach ($autos as $auto): ?>
-        <div class="card">
-        <img src="<?php echo htmlspecialchars($auto['url_img']); ?>" alt="<?php echo $auto['marca'] . ' ' . $auto['modelo']; ?>">
-        <div class="card-body">
-        <h3><?php echo $auto['marca'] . " " . $auto['modelo']; ?></h3>
-        <p>Tipo: <?php echo $auto['tipo']; ?></p>
-        <p>Color: <?php echo $auto['color']; ?></p>
-        <p>Año: <?php echo date("Y", strtotime($auto['fecha_fabricacion'])); ?></p>
-        <p>Precio: USD$<?php echo number_format($auto['precio'], 2); ?></p>
-        <p>Estado: <?php echo $auto['estado']; ?></p>
-        <form method="POST" style="margin-top:10px;">
-        <input type="hidden" name="id_auto" value="<?php echo $auto['id_auto']; ?>">
-        <button type="submit" name="comprar">Comprar</button>
-      </form>
+    <h2>Catálogo de nuestros vehículos</h2>
+    <div class="catalogo-container" id="catalogo-container">
+      <div class="catalogo-grid">
+        <?php foreach ($autos as $auto): ?>
+          <div class="card">
+            <img src="<?= htmlspecialchars($auto['url_img']) ?>" 
+                 alt="<?= htmlspecialchars($auto['marca'] . ' ' . $auto['modelo']) ?>">
+            <div class="card-body">
+              <h3><?= htmlspecialchars($auto['marca'] . " " . $auto['modelo']) ?></h3>
+              <p>Tipo: <?= htmlspecialchars($auto['tipo']) ?></p>
+              <p>Color: <?= htmlspecialchars($auto['color']) ?></p>
+              <p>Año: <?= date("Y", strtotime($auto['fecha_fabricacion'])) ?></p>
+              <p>Precio: USD$<?= number_format($auto['precio'], 2) ?></p>
+              <p>Estado: <?= htmlspecialchars($auto['estado']) ?></p>
+              <form method="POST" style="margin-top:10px;">
+                <input type="hidden" name="id_auto" value="<?= $auto['id_auto'] ?>">
+                <button type="submit" name="comprar">Comprar</button>
+              </form>
+            </div>
+          </div>
+        <?php endforeach; ?>
+      </div>
     </div>
-  </div>
-<?php endforeach; ?>
-
-    </div>
-  </div>
-
-  <button class="ver-mas-btn" id="ver-mas">Ver más autos</button>
-</section>
-  <!-- CONTACTO -->
-  <!-- <section id="contacto">
-    <h2>Contacto</h2>
-    <form>
-      <input type="text" placeholder="Nombre" required>
-      <input type="email" placeholder="Correo electrónico" required>
-      <textarea rows="5" placeholder="Escribe tu mensaje..." required></textarea>
-      <button type="submit">Enviar</button>
-    </form>
-    <div style="text-align:center; margin-top:20px;">
-      <p>Tel: (011) 5555-5555</p>
-      <p>Email: contacto@usadospremium.com</p>
-      <p>Dirección: Av. Siempre Viva 123, Buenos Aires</p>
-    </div>
-  </section> -->
+    <button class="ver-mas-btn" id="ver-mas">Ver más autos</button>
+  </section>
 
   <!-- FOOTER -->
   <footer>
@@ -92,13 +77,13 @@ $autos = $autoObj->obtenerAutos();
   </footer>
 
   <script>
-  document.getElementById("ver-mas").addEventListener("click", function() {
-    const container = document.getElementById("catalogo-container");
-    container.style.maxHeight = "none";
-    container.style.overflow = "visible";
-    container.classList.remove("catalogo-container");
-    this.style.display = "none";
-  });
+    document.getElementById("ver-mas").addEventListener("click", function() {
+      const container = document.getElementById("catalogo-container");
+      container.style.maxHeight = "none";
+      container.style.overflow = "visible";
+      container.classList.remove("catalogo-container");
+      this.style.display = "none";
+    });
   </script>
 </body>
 </html>

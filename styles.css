@@ -66,11 +66,6 @@ section {
   text-align: center;
 }
 
-#inicio img {
-  width: auto;
-  height: auto;
-}
-
 #inicio h2 {
   font-size: 3rem;
   margin-bottom: 20px;
@@ -85,7 +80,7 @@ section {
   border-radius: 15px;
 }
 
-/* --- CATALOGO --- */
+/* --- TITULOS DE SECCION --- */
 #catalogo h2,
 #agregar h2,
 #contacto h2 {
@@ -95,6 +90,25 @@ section {
   color: #111;
 }
 
+/* --- CATALOGO --- */
+.catalogo-container {
+  position: relative;
+  max-height: 600px;
+  overflow: hidden;
+}
+
+.catalogo-container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to top, #f5f5f5, rgba(245, 245, 245, 0));
+  pointer-events: none;
+  z-index: 5;
+}
+
 .catalogo-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -102,9 +116,12 @@ section {
 }
 
 .card {
-  background: #fff;
-  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 8px;
   overflow: hidden;
+  background-color: #fff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
 }
@@ -114,13 +131,15 @@ section {
 }
 
 .card img {
-  width: 70%;
-  height: 50%;
-  object-fit: cover;
+  width: 100%;         /* ocupa todo el ancho de la tarjeta */
+  height: 200px;       /* alto fijo para todas las imágenes */
+  object-fit: cover;   /* recorta la imagen manteniendo proporción */
+  display: block;
 }
 
 .card-body {
-  padding: 15px;
+  padding: 10px;
+  flex: 1;
 }
 
 .card-body h3 {
@@ -131,6 +150,24 @@ section {
 .card-body p {
   font-size: 0.9rem;
   margin-bottom: 5px;
+}
+
+/* --- BOTON VER MÁS --- */
+.ver-mas-btn {
+  display: block;
+  margin: 20px auto;
+  padding: 12px 20px;
+  background: #e50914;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.ver-mas-btn:hover {
+  background: #b0060f;
 }
 
 /* --- FORMULARIOS --- */
@@ -144,7 +181,8 @@ form {
 
 input,
 textarea,
-button {
+button,
+select {
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -181,66 +219,11 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* --- CATALOGO LIMITADO CON DIFUMINADO --- */
-.catalogo-container {
-  position: relative;
-  max-height: 600px;
-  overflow: hidden;
-}
-
-.catalogo-container::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 150px;
-  background: linear-gradient(to top, #f5f5f5, rgba(245, 245, 245, 0));
-  pointer-events: none;
-  z-index: 5;
-}
-
-.ver-mas-btn {
-  display: block;
-  margin: 20px auto;
-  padding: 12px 20px;
-  background: #e50914;
-  color: #fff;
-  font-weight: bold;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.ver-mas-btn:hover {
-  background: #b0060f;
-}
-
-.catalogo-grid .card {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  overflow: hidden;
-  background-color: #fff;
-}
-
-.catalogo-grid .card img {
-  width: 100%;         /* ocupa todo el ancho de la tarjeta */
-  height: 200px;       /* alto fijo para todas las imágenes */
-  object-fit: cover;   /* recorta la imagen manteniendo proporción */
-  display: block;
-}
-
-.catalogo-grid .card-body {
-  padding: 10px;
-  flex: 1;
-}
-.puto{
+/* --- ESTILOS ADICIONALES --- */
+.titulo-agregar {
   margin-top: 80px;
 }
-.estado{
+
+.estado {
   height: 40px;
-  /* width: ; */
 }
