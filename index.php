@@ -7,7 +7,9 @@
   <title>Concesionaria Usados Premium</title>
 </head>
 <body>
-
+<?php
+  echo "hola";
+?>
   <!-- NAVBAR -->
   <header>
     <h1>Loz-Autos</h1>
