@@ -19,9 +19,9 @@ header {
   color: #fff;
   padding: 15px 20px;
   position: fixed;
-  width: 100%;
+  width: 100px;
   top: 0;
-  z-index: 10;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
