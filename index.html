@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Concesionaria Usados Premium</title>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <h1>Loz-Autos</h1>
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="classes/ingreso.php">Agregar Auto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- INICIO -->
+  <section id="inicio">
+    <h2>Bienvenido a "Loz-Autos"</h2>
+    <p>Tu concesionaria de confianza en compra y venta de autos usados. Calidad, garantía y el mejor precio para vos.</p>
+  </section>
+
+  <!-- CATALOGO -->
+  <section id="catalogo">
+    <h2>Catálogo de nuestros vehículos</h2>
+    <div class="catalogo-container" id="catalogo-container">
+      <div class="catalogo-grid">
+          <div class="card">
+            <img src="<?= htmlspecialchars($auto['url_img']) ?>" 
+                 alt="<?= htmlspecialchars($auto['marca'] . ' ' . $auto['modelo']) ?>">
+            <div class="card-body">
+              <h3></h3>
+              <p>Tipo:</p>
+              <p>Color:</p>
+              <p>Año:</p>
+              <p>Precio:</p>
+              <p>Estado:</p>
+              <form method="POST" style="margin-top:10px;">
+                <input type="hidden" name="id_auto" value="<?= $auto['id_auto'] ?>">
+                <button type="submit" name="comprar">Comprar</button>
+              </form>
+            </div>
+          </div>
+      </div>
+    </div>
+    <button class="ver-mas-btn" id="ver-mas">Ver más autos</button>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Loz-Autos | Diseñado por Destch-Compani & Equipo</p>
+    <p><a href="#inicio">Volver arriba</a></p>
+  </footer>
+
+  <script>
+    document.getElementById("ver-mas").addEventListener("click", function() {
+      const container = document.getElementById("catalogo-container");
+      container.style.maxHeight = "none";
+      container.style.overflow = "visible";
+      container.classList.remove("catalogo-container");
+      this.style.display = "none";
+    });
+  </script>
+</body>
+</html>
