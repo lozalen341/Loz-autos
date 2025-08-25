@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Agregar Auto</title>
+</head>
+<body>
+    
+  <!-- NAVBAR -->
+  <header class="agregar">
+    <h1>Loz-Autos</h1>
+    <nav>
+      <ul>
+        <li><a href="../index.php">Inicio</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- FORMULARIO DE ALTA DE AUTO -->
+  <section id="agregar">
+    <h2 class="titulo-agregar">Agregar un nuevo auto</h2>
+    <form method="POST">
+      <input type="text" name="marca" placeholder="Marca" required>
+      <input type="text" name="modelo" placeholder="Modelo" required>
+      <input type="text" name="tipo" placeholder="Tipo" required>
+      <input type="text" name="color" placeholder="Color" required>
+      <input type="date" name="fecha_fabricacion" required>
+      <input type="number" name="precio" placeholder="Precio (USD$)" step="0.01" required>
+      <input type="text" name="url_img" placeholder="URL de la imagen del vehículo" required>
+      
+      <select class="estado" name="estado" required>
+        <option value="Nuevo">Nuevo</option>
+        <option value="Usado">Usado</option>
+      </select>
+      
+      <button type="submit" name="agregar">Agregar Auto</button>
+    </form>
+  </section>
+</body>
+</html>
