@@ -7,7 +7,7 @@ class Database {
     private string $host = "localhost";
     private string $user = "root";     
     private string $password = "";     
-    private string $dbname = "concesionaria";
+    private string $dbname = "Loz-autosDB";
     private ?PDO $connection = null;
 
     /**
