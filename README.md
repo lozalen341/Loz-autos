@@ -24,7 +24,7 @@ Gestión simple de catálogo de autos (MVP) desarrollada en PHP (POO) + MySQL. P
 
 ## Instalación
 1. Clonar el repo en `htdocs/consesionaria`.
-2. Crear BD `consesionaria` (utf8mb4) e importar `autos_DB.sql`.
+2. Crear BD `Loz-autosDB` (utf8mb4) e importar `autos_DB.sql`.
 3. Ajustar credenciales de DB en el código (si aplica).
 4. Abrir `http://localhost/consesionaria/`.
 
