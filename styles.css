@@ -55,29 +55,34 @@ nav a:hover {
 section {
   padding: 100px 20px;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
+/* --- SECCION INICIO --- */
 #inicio {
   background: url('https://www.hdcarwallpapers.com/download/2021_bmw_m3_competition_4k-2560x1440.jpg') no-repeat center center/cover;
   color: white;
+  text-align: center;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  text-align: center;
 }
 
 #inicio h2 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   margin-bottom: 20px;
   text-shadow: 2px 2px 6px #000;
 }
 
 #inicio p {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   max-width: 700px;
   background: rgba(0, 0, 0, 0.5);
-  padding: 15px;
+  padding: 20px;
   border-radius: 15px;
 }
 
@@ -93,42 +98,31 @@ section {
 
 /* --- CATALOGO --- */
 .catalogo-container {
-  position: relative;
-  max-height: 600px;
-  overflow: hidden;
-}
-
-.catalogo-container::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
   width: 100%;
-  height: 150px;
-  background: linear-gradient(to top, #f5f5f5, rgba(245, 245, 245, 0));
-  pointer-events: none;
-  z-index: 5;
+  max-width: 1200px;
 }
 
 .catalogo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
+  justify-items: center;
 }
 
 .card {
   display: flex;
   flex-direction: column;
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
   background-color: #fff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
 .card img {
@@ -139,8 +133,9 @@ section {
 }
 
 .card-body {
-  padding: 10px;
+  padding: 15px;
   flex: 1;
+  text-align: center;
 }
 
 .card-body h3 {
@@ -156,13 +151,13 @@ section {
 /* --- BOTON VER MÁS --- */
 .ver-mas-btn {
   display: block;
-  margin: 20px auto;
-  padding: 12px 20px;
+  margin: 30px auto 0;
+  padding: 12px 25px;
   background: #e50914;
   color: #fff;
   font-weight: bold;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -174,10 +169,15 @@ section {
 /* --- FORMULARIOS --- */
 form {
   max-width: 500px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 15px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
 }
 
 input,
@@ -209,6 +209,7 @@ footer {
   color: #fff;
   text-align: center;
   padding: 20px;
+  margin-top: 50px;
 }
 
 footer a {
@@ -220,44 +221,32 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* --- ESTILOS ADICIONALES --- */
-.titulo-agregar {
-  margin-top: 80px;
-}
-
-.estado {
-  height: 40px;
-}
-
-/* ====== RESPONSIVE ====== */
+/* --- MEDIA QUERIES RESPONSIVE --- */
 
 /* --- Tablets (992px) --- */
 @media (max-width: 992px) {
   header {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
 
   nav ul {
     flex-direction: column;
     width: 100%;
     margin-top: 10px;
+    align-items: center;
   }
 
   header h1 {
-    font-size: 1.8rem;
-  }
-
-  #inicio h2 {
     font-size: 2rem;
   }
 
-  #inicio p {
-    font-size: 1rem;
+  #inicio h2 {
+    font-size: 2.4rem;
   }
 
-  form {
-    width: 90%;
+  #inicio p {
+    font-size: 1.1rem;
   }
 
   .catalogo-grid {
@@ -272,7 +261,7 @@ footer a:hover {
   }
 
   header h1 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 
   nav ul {
@@ -281,12 +270,12 @@ footer a:hover {
   }
 
   #inicio h2 {
-    font-size: 1.6rem;
+    font-size: 2rem;
   }
 
   #inicio p {
-    font-size: 0.95rem;
-    padding: 10px;
+    font-size: 1rem;
+    padding: 12px;
   }
 
   .card img {
@@ -302,25 +291,30 @@ footer a:hover {
     padding: 10px 15px;
     font-size: 0.9rem;
   }
+
+  form {
+    padding: 15px;
+  }
 }
 
 /* --- Celulares pequeños (480px) --- */
 @media (max-width: 480px) {
   header h1 {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
   }
 
   nav ul {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
 
   #inicio h2 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
 
   #inicio p {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
+    padding: 10px;
   }
 
   .card img {
@@ -335,6 +329,10 @@ footer a:hover {
   .ver-mas-btn {
     font-size: 0.85rem;
     padding: 8px 12px;
+  }
+
+  form {
+    padding: 12px;
   }
 }
 
