@@ -3,112 +3,227 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
   font-family: 'Segoe UI', sans-serif;
 }
 
 body {
-  background: url('fondo.jpg') no-repeat center center fixed; /* reemplazar por tu imagen */
-  background-size: cover;
+  background-color: #f5f5f5;
   color: #333;
+  line-height: 1.6;
 }
 
-/* --- CONTENEDORES PRINCIPALES --- */
-header, footer {
-  background-color: rgba(0,0,0,0.7);
-  color: white;
-  padding: 15px 30px;
-  text-align: center;
-}
-
-main {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 20px;
-}
-
-/* --- SECCIONES --- */
-.section {
-  background-color: rgba(255,255,255,0.9);
-  margin: 15px;
-  padding: 20px;
-  border-radius: 12px;
-  flex: 1 1 300px; /* mínimo 300px, flexible */
-  max-width: 400px;
-}
-
-.section img {
+/* --- NAVBAR --- */
+header {
+  background: #111;
+  color: #fff;
+  padding: 15px 20px;
+  position: fixed;
   width: 100%;
-  border-radius: 10px;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.section h2 {
-  text-align: center;
-  margin-bottom: 10px;
+header h1 {
+  font-size: 3.5rem;
+  color: #e50914;
 }
 
-.section button {
-  display: block;
-  margin: 10px auto 0 auto;
-  padding: 10px 20px;
-  background-color: #5c4033;
+nav ul {
+  font-size: 1.5rem;
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #e50914;
+}
+
+/* --- SECTIONS --- */
+section {
+  padding: 100px 20px;
+  min-height: 100vh;
+}
+
+#inicio {
+  background: url('https://www.hdcarwallpapers.com/download/2021_bmw_m3_competition_4k-2560x1440.jpg') no-repeat center center/cover;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+#inicio h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 6px #000;
+}
+
+#inicio p {
+  font-size: 1.3rem;
+  max-width: 700px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  border-radius: 15px;
+}
+
+/* --- TITULOS DE SECCION --- */
+#catalogo h2,
+#agregar h2,
+#contacto h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #111;
+}
+
+/* --- CATALOGO --- */
+.catalogo-container {
+  position: relative;
+  max-height: 600px;
+  overflow: hidden;
+}
+
+.catalogo-container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to top, #f5f5f5, rgba(245, 245, 245, 0));
+  pointer-events: none;
+  z-index: 5;
+}
+
+.catalogo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;         /* ocupa todo el ancho de la tarjeta */
+  height: 200px;       /* alto fijo para todas las imágenes */
+  object-fit: cover;   /* recorta la imagen manteniendo proporción */
+  display: block;
+}
+
+.card-body {
+  padding: 10px;
+  flex: 1;
+}
+
+.card-body h3 {
+  margin-bottom: 10px;
+  color: #e50914;
+}
+
+.card-body p {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+/* --- BOTON VER MÁS --- */
+.ver-mas-btn {
+  display: block;
+  margin: 20px auto;
+  padding: 12px 20px;
+  background: #e50914;
+  color: #fff;
+  font-weight: bold;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   transition: 0.3s;
 }
 
-.section button:hover {
-  background-color: #8b5e3c;
+.ver-mas-btn:hover {
+  background: #b0060f;
 }
 
-/* --- MENÚ --- */
-nav {
+/* --- FORMULARIOS --- */
+form {
+  max-width: 500px;
+  margin: 0 auto;
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
+  flex-direction: column;
+  gap: 15px;
 }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  padding: 10px 15px;
-  background-color: #5c4033;
-  border-radius: 6px;
+input,
+textarea,
+button,
+select {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+button {
+  background: #e50914;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
   transition: 0.3s;
 }
 
-nav a:hover {
-  background-color: #8b5e3c;
+button:hover {
+  background: #b0060f;
 }
 
-/* --- RESPONSIVE --- */
-@media (max-width: 768px) {
-  main {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .section {
-    max-width: 90%;
-  }
-
-  nav {
-    flex-direction: column;
-    gap: 10px;
-  }
+/* --- FOOTER --- */
+footer {
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
 }
 
-@media (max-width: 480px) {
-  header, footer {
-    padding: 10px;
-    font-size: 14px;
-  }
+footer a {
+  color: #e50914;
+  text-decoration: none;
+}
 
-  .section button, nav a {
-    width: 80%;
-  }
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* --- ESTILOS ADICIONALES --- */
+.titulo-agregar {
+  margin-top: 80px;
+}
+
+.estado {
+  height: 40px;
 }
