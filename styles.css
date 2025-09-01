@@ -227,3 +227,96 @@ footer a:hover {
 .estado {
   height: 40px;
 }
+/* --- MEDIA QUERIES --- */
+
+/* Tablets y pantallas medianas */
+@media (max-width: 1024px) {
+  header h1 {
+    font-size: 2.5rem;
+  }
+
+  nav ul {
+    font-size: 1.2rem;
+    gap: 15px;
+  }
+
+  #inicio h2 {
+    font-size: 2.5rem;
+  }
+
+  #inicio p {
+    font-size: 1.1rem;
+    max-width: 600px;
+  }
+
+  .card img {
+    height: 180px;
+  }
+}
+
+/* Móviles y pantallas pequeñas */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  #inicio h2 {
+    font-size: 2rem;
+  }
+
+  #inicio p {
+    font-size: 1rem;
+    max-width: 90%;
+    padding: 10px;
+  }
+
+  .catalogo-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .card img {
+    height: 150px;
+  }
+
+  form {
+    width: 90%;
+  }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  nav ul {
+    font-size: 1rem;
+  }
+
+  #inicio h2 {
+    font-size: 1.5rem;
+  }
+
+  #inicio p {
+    font-size: 0.9rem;
+  }
+
+  .ver-mas-btn,
+  button {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .card img {
+    height: 120px;
+  }
+}
