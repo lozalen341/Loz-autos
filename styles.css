@@ -25,16 +25,15 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; /* permite que el menú baje en pantallas chicas */
+  flex-wrap: wrap;
 }
 
 header h1 {
-  font-size: 3.5rem;
+  font-size: 2rem;
   color: #e50914;
 }
 
 nav ul {
-  font-size: 1.5rem;
   list-style: none;
   display: flex;
   gap: 20px;
@@ -69,13 +68,13 @@ section {
 }
 
 #inicio h2 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: 20px;
   text-shadow: 2px 2px 6px #000;
 }
 
 #inicio p {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   max-width: 700px;
   background: rgba(0, 0, 0, 0.5);
   padding: 15px;
@@ -113,7 +112,7 @@ section {
 
 .catalogo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
 }
 
@@ -232,28 +231,8 @@ footer a:hover {
 
 /* --- MEDIA QUERIES RESPONSIVE --- */
 
-/* Tablets (pantallas medianas) */
-@media (max-width: 1024px) {
-  header h1 {
-    font-size: 2.5rem;
-  }
-
-  nav ul {
-    font-size: 1.2rem;
-    gap: 15px;
-  }
-
-  #inicio h2 {
-    font-size: 2.5rem;
-  }
-
-  #inicio p {
-    font-size: 1.1rem;
-  }
-}
-
-/* Celulares grandes */
-@media (max-width: 768px) {
+/* --- Tablets (pantallas medianas) --- */
+@media (max-width: 992px) {
   header {
     flex-direction: column;
     align-items: flex-start;
@@ -266,7 +245,7 @@ footer a:hover {
   }
 
   header h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   #inicio h2 {
@@ -282,8 +261,12 @@ footer a:hover {
   }
 }
 
-/* Celulares pequeños */
-@media (max-width: 480px) {
+/* --- Celulares grandes --- */
+@media (max-width: 768px) {
+  header {
+    padding: 10px;
+  }
+
   header h1 {
     font-size: 1.5rem;
   }
@@ -294,25 +277,53 @@ footer a:hover {
   }
 
   #inicio h2 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 
   #inicio p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     padding: 10px;
   }
 
   .card img {
-    height: 150px;
+    height: 160px;
   }
 
   .card-body p {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
   }
 
   button,
   .ver-mas-btn {
     padding: 10px 15px;
     font-size: 0.9rem;
+  }
+}
+
+/* --- Celulares pequeños --- */
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.3rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #inicio h2 {
+    font-size: 1.4rem;
+  }
+
+  #inicio p {
+    font-size: 0.85rem;
+  }
+
+  .card img {
+    height: 140px;
+  }
+
+  .card-body p {
+    font-size: 0.8rem;
   }
 }
