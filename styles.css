@@ -112,7 +112,7 @@ section {
 
 .catalogo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 
@@ -229,9 +229,9 @@ footer a:hover {
   height: 40px;
 }
 
-/* --- MEDIA QUERIES RESPONSIVE --- */
+/* ====== RESPONSIVE ====== */
 
-/* --- Tablets (pantallas medianas) --- */
+/* --- Tablets (992px) --- */
 @media (max-width: 992px) {
   header {
     flex-direction: column;
@@ -259,9 +259,13 @@ footer a:hover {
   form {
     width: 90%;
   }
+
+  .catalogo-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
 }
 
-/* --- Celulares grandes --- */
+/* --- Celulares grandes (768px) --- */
 @media (max-width: 768px) {
   header {
     padding: 10px;
@@ -300,7 +304,7 @@ footer a:hover {
   }
 }
 
-/* --- Celulares pequeños --- */
+/* --- Celulares pequeños (480px) --- */
 @media (max-width: 480px) {
   header h1 {
     font-size: 1.3rem;
@@ -326,4 +330,17 @@ footer a:hover {
   .card-body p {
     font-size: 0.8rem;
   }
+
+  button,
+  .ver-mas-btn {
+    font-size: 0.85rem;
+    padding: 8px 12px;
+  }
+}
+
+/* --- IMAGENES Y VIDEO FLUIDOS --- */
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
